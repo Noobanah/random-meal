@@ -45,7 +45,7 @@ html {
 
     .btn {
     align-self: center;
-    width: auto;
+    width: 20px;
     background-color: white;
     border: solid 2px black;
     padding: 5px;
