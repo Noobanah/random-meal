@@ -1,0 +1,46 @@
+html {
+    background-color: #F2EFE7;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.text {
+    color: #48A6A7;
+    font-family: kanit;
+}
+
+.pic {
+    width: 30%;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    border: solid 3px;
+}
+
+.btn {
+    align-self: center;
+    width: auto;
+    background-color: white;
+    border: solid 2px black;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.name {
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 599px) {
+    .pic {
+        width: 80%;
+        margin-bottom: 30px;
+        border-radius: 30px;
+        border: solid 3px;
+    }
+
+}
