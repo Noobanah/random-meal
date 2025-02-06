@@ -21,7 +21,7 @@ $("button").click(function () {
         porkgalic();
     } else if (currentMenu === "omelette") {
         omelette();
-    } else if (currentMenu === "radnh") {
+    } else if (currentMenu === "radnha") {
         radnha();
     }
 })
