@@ -43,14 +43,4 @@ html {
         border: solid 3px;
     }
 
-    .btn {
-    align-self: center;
-    width: auto;
-    background-color: white;
-    border: solid 2px black;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 10px;
-}
-
 }
