@@ -1,63 +1,35 @@
-var mainMenu = ["kaprao", "khana", "porkgalic", "omelette", "radnha", "phadphak"];
-var currentMenu = "test";
-var previousMenu = "test";
+function MenuItem(name, text, image) {
+    this.name = name;
+    this.text = text;
+    this.image = image;
+}
+
+var menuList = {
+    kaprao: new MenuItem("kaprao", "ผัดกะเพราหมูสับ", "./images/kaprao.png"),
+    khana: new MenuItem("khana", "คะน้าหมูกรอบ", "./images/khana.png"),
+    porkgalic: new MenuItem("porkgalic", "หมูทอดกระเทียม", "./images/porkgalic.png"),
+    omelette: new MenuItem("omelette", "ไข่เจียว", "./images/omelette.png"),
+    radnha: new MenuItem("radnha", "ราดหน้า", "./images/radnha.png"),
+    phadphak: new MenuItem("phadphak", "ผัดผักรวม", "./images/phadphak.png")
+};
+
+var currentMenu = null;
+var previousMenu = null;
+
+function updateMenu(menuItem) {
+    $(".menu").text(menuItem.text);
+    $("img").attr("src", menuItem.image);
+    previousMenu = menuItem.name;
+}
 
 $("button").click(function () {
-    var randomMenu = Math.floor(Math.random() * 6);
-    currentMenu = mainMenu[randomMenu];
-    if (previousMenu === currentMenu) {
-        while (previousMenu === currentMenu) {
-            var randomMenu = Math.floor(Math.random() * 6);
-            currentMenu = mainMenu[randomMenu];
-        }
-    }
-    if (currentMenu === "kaprao") {
-        kaprao();
-    } else if (currentMenu === "khana") {
-        khana();
-    } else if (currentMenu === "phadphak") {
-        phadphak();
-    } else if (currentMenu === "porkgalic") {
-        porkgalic();
-    } else if (currentMenu === "omelette") {
-        omelette();
-    } else if (currentMenu === "radnha") {
-        radnha();
-    }
-})
+    var menuKeys = Object.keys(menuList);
+    var randomMenu;
 
-function kaprao() {
-    $(".menu").text("ผัดกะเพราหมูสับ");
-    document.querySelectorAll("img")[0].setAttribute("src", "./images/kaprao.png");
-    previousMenu = "kaprao";
-}
+    do {
+        randomMenu = menuKeys[Math.floor(Math.random() * menuKeys.length)];
+    } while (randomMenu === previousMenu);
 
-function khana() {
-    $(".menu").text("คะน้าหมูกรอบ");
-    document.querySelectorAll("img")[0].setAttribute("src", "./images/khana.png");
-    previousMenu = "khana";
-}
-
-function porkgalic() {
-    $(".menu").text("หมูทอดกระเทียม");
-    document.querySelectorAll("img")[0].setAttribute("src", "./images/porkgalic.png");
-    previousMenu = "porkgalic";
-}
-
-function omelette() {
-    $(".menu").text("ไข่เจียว");
-    document.querySelectorAll("img")[0].setAttribute("src", "./images/omelette.png");
-    previousMenu = "omelette";
-}
-
-function radnha() {
-    $(".menu").text("ราดหน้า");
-    document.querySelectorAll("img")[0].setAttribute("src", "./images/radnha.png");
-    previousMenu = "radnha";
-}
-
-function phadphak() {
-    $(".menu").text("ผัดผักรวม");
-    document.querySelectorAll("img")[0].setAttribute("src", "./images/phadphak.png");
-    previousMenu = "phadphak";
-}
+    currentMenu = menuList[randomMenu];
+    updateMenu(currentMenu);
+});
