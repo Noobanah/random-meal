@@ -33,3 +33,7 @@ $("button").click(function () {
     currentMenu = menuList[randomMenu];
     updateMenu(currentMenu);
 });
+
+// $("#input1").change(function(value) {
+//     menuList.[value] = MenuItem()
+// })
